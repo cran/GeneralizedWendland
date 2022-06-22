@@ -1,0 +1,53 @@
+useDynLib(GeneralizedWendland, .registration=TRUE)
+
+
+#######################################################################
+# Assorted imports
+#----------------------------------------------------------------------
+
+importFrom("methods", "is", "as", "new")
+importFrom("stats", "integrate", "optim", "dist")
+importFrom("utils", "installed.packages")
+import(Matrix, except="det")
+
+
+#######################################################################
+# Spam dependencies
+#----------------------------------------------------------------------
+
+importFrom("spam", "solve.spam", "determinant.spam.chol.NgPeyton", "is.spam", "as.spam",
+           "update.spam.chol.NgPeyton", "chol.spam", "rmvnorm", "nearest.dist",
+           "as.dgCMatrix.spam", "as.spam.dgCMatrix", "chol2inv.spam")
+import(spam64)
+
+
+#######################################################################
+# Rcpp dependencies
+#----------------------------------------------------------------------
+
+import(Rcpp)
+
+
+#######################################################################
+# Dependencies for parallelization
+#----------------------------------------------------------------------
+
+importFrom("parallel", "makeCluster", "detectCores", "setDefaultCluster",
+           "stopCluster", "clusterEvalQ", "clusterExport")
+
+
+#######################################################################
+# Import for optimParallel
+#----------------------------------------------------------------------
+
+importFrom("optimParallel", "optimParallel")
+
+
+#######################################################################
+#Exports
+#----------------------------------------------------------------------
+
+export("covarianceFactory", "choleskyFactory", "neg2loglikFactory",
+       "optimFactory", "mleFactory", "covDiagFactory", "neg2loglikDiagFactory",
+       "cov.wendland", "cov.askey", "predictionFactory", "control.askey",
+       "control.wendland")
