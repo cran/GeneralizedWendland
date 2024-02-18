@@ -26,23 +26,23 @@ control.askey(cov.reparameterize = getOption("wendland.cov.reparameterize"),
 }
 
 \arguments{
-\item{numint.abstol (default: 1e-3)}{Absolute tolerance for numerical integration.}
+\item{numint.abstol}{Absolute tolerance for numerical integration (default: 1e-3).}
 
-\item{numint.reltol (default: 1e-3)}{Relative tolerance for numerical integration.}
+\item{numint.reltol}{Relative tolerance for numerical integration (default: 1e-3).}
 
-\item{numint.qag_key (default: 0)}{Method to use in QAG integration (Values 1 - 6)}
+\item{numint.qag_key}{Method to use in QAG integration, from 0-6 (default: 0).}
 
-\item{numint.subintervals (default: 0)}{Number of subintervals to use in QAG/QAGS integration.}
+\item{numint.subintervals}{Number of subintervals to use in QAG/QAGS integration (default: 0).}
 
-\item{interp.method (default: 'none')}{Method to use for covariance interpolation. Valid methods are 'none', 'linear', 'polynomial', and 'cspline'.}
+\item{interp.method}{Method to use for covariance interpolation. Valid methods are 'none', 'linear', 'polynomial', and 'cspline' (default: 'none').}
 
-\item{interp.num_support (default: 0)}{Number of support points to use for covariance interpolation.}
+\item{interp.num_support}{Number of support points to use for covariance interpolation (default: 0).}
 
-\item{cov.reparameterize (default: TRUE)}{Whether to apply the reparameterization \eqn{\mu=\frac{1+d}{2} + \kappa + \nu}, where \eqn{\nu} takes the place of \eqn{\mu} in input vector \eqn{\vec{\theta}}. This allows users to use box constraints in maximum likelihood estimation, as the covariance function is valid for \eqn{\nu \in [0,\infty)} rather than \eqn{\mu \in [\frac{1+d}{2} + \kappa,\infty)}.}
+\item{cov.reparameterize}{Whether to apply the reparameterization \eqn{\mu=\frac{1+d}{2} + \kappa + \nu}, where \eqn{\nu} takes the place of \eqn{\mu} in input vector \eqn{\vec{\theta}} (default: TRUE). This allows users to use box constraints in maximum likelihood estimation, as the covariance function is valid for \eqn{\nu \in [0,\infty)} rather than \eqn{\mu \in [\frac{1+d}{2} + \kappa,\infty)}.}
 
-\item{cov.eps (default: .Machine$double.eps^0.5)}{The threshold distance \eqn{\epsilon} below which the function will return \eqn{\sigma + \theta}.}
+\item{cov.eps}{The threshold distance \eqn{\epsilon} below which the function will return \eqn{\sigma + \theta} (default: .Machine$double.eps^0.5).}
 
-\item{cov.d_value (default: 2)}{Dimensionality of space in which measurements were taken. This only takes effect if \code{cov.reparameterize} is TRUE.}
+\item{cov.d_value}{Dimensionality of space in which measurements were taken (default: 2). This only takes effect if \code{cov.reparameterize} is TRUE.}
 
 \item{...}{Other arguments. Unused.}
 }

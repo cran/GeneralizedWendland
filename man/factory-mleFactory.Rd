@@ -14,7 +14,7 @@ mleFactory(covariance, cov.args = list(), chol.args = list(),
 }
 
 \value{
-A function of the form \code{function(y, X = data.frame(), distmat, init_parameters, theta_llim, theta_ulim)}. The manufactured function itself has the form \code{function(y, X = data.frame(), distmat, init_parameters, theta_llim, theta_ulim} and returns the output of \code{optim} or \code{optimParallel} when \code{optimParallel.args} was specified.
+A function of the form \code{function(y, X = data.frame(), distmat, beta0 = NULL, init_parameters, theta_llim, theta_ulim)} which returns the output of \code{optim} or \code{optimParallel} if \code{optimParallel.args} was specified.
 }
 
 \arguments{

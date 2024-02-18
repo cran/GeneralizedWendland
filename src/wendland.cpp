@@ -128,7 +128,7 @@ Eigen::MatrixXd Wendland::computeMatrix(const Eigen::MatrixXd& dmat){
         cmat(i,j) = cmat(j,i);
 
       } else if (d < epstol){
-        cmat(i,j) = param.sill+param.nugget;
+        cmat(i,j) = param.sill+(i==j?param.nugget:0.0);
 
       } else {
         cmat(i,j) = param.sill*compute(d)/beta_constant;
@@ -161,7 +161,7 @@ Eigen::SparseMatrix<double> Wendland::computeMSparse(const Eigen::SparseMatrix<d
       col = it.col();
 
       if ((d<param.range) && (!computed(row,col))){
-        value = (d<epstol) ? param.sill+param.nugget :
+        value = (d<epstol && row == col) ? param.sill+param.nugget :
         param.sill*compute(d)/beta_constant;
 
         if (value > epstol){
@@ -203,7 +203,8 @@ Rcpp::List Wendland::computeSpam(const Eigen::MatrixXi& index, const Eigen::Vect
         value = map.find(tkey)->second;
 
       } else {
-        value = (std::get<2>(key) < epstol) ? param.sill+param.nugget :
+        value = (std::get<2>(key) < epstol &&
+          std::get<0>(key) == std::get<1>(key)) ? param.sill+param.nugget :
           param.sill*compute(std::get<2>(key))/beta_constant;
       }
 

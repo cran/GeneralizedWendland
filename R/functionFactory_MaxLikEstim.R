@@ -9,12 +9,18 @@ mleFactory <- function(covariance, cov.args = list(), chol.args = list(),
     optimParallel.args = optimParallel.args)
 
 
-  mleFunction <- function(y, X = data.frame(), distmat, init_parameters,
+  mleFunction <- function(y, X = data.frame(), distmat, beta0 = NULL, init_parameters,
     theta_llim, theta_ulim){
 
     cholFunction <- choleskyFactory(chol.args=chol.args, Rstruct=Rstruct)
     theta <- init_parameters
-    beta <- numeric(ncol(X))
+
+    if (is.null(beta0) || ncol(X) != length(beta0)) {
+      beta <- numeric(ncol(X))
+    } else {
+      beta <- beta0
+    }
+
     Rstruct <- NULL
 
 

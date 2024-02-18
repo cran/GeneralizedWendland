@@ -1,8 +1,8 @@
 Package: GeneralizedWendland
 Type: Package
 Title: Fully Parameterized Generalized Wendland Covariance Function
-Version: 0.5-2
-Date: 2022-06-20
+Version: 0.6.0
+Date: 2024-02-18
 Authors@R: c(
   person(c("Thomas", "C."), "Fischer", role = c("aut", "cre"), email = "thomascasparfischer@gmail.com"),
   person("Reinhard", "Furrer", role = c("aut", "ths"), email = "reinhard.furrer@math.uzh.ch"),
@@ -25,9 +25,9 @@ Encoding: UTF-8
 Config/testthat/edition: 3
 VignetteBuilder: R.rsp, knitr
 NeedsCompilation: yes
-Packaged: 2022-06-20 09:31:54 UTC; thomas
+Packaged: 2024-02-18 20:50:48 UTC; thoma
 Author: Thomas C. Fischer [aut, cre],
   Reinhard Furrer [aut, ths],
   Josef Stocker [aut]
 Repository: CRAN
-Date/Publication: 2022-06-22 07:10:13 UTC
+Date/Publication: 2024-02-18 21:20:02 UTC
